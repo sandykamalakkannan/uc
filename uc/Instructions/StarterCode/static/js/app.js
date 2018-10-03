@@ -7,12 +7,12 @@ var tbody = d3.select("tbody");
 data.forEach(function(UFOobjects) {
     console.log(UFOobjects);
     var row = tbody.append("tr");
-    Object.entries(UFOobjects).forEach(function([key, value]) {
-      // console.log(key, value);
-      // Append a cell to the row for each value
-      // in the weather report object
-      var cell = tbody.append("td");
-      cell.text(value);
+    // Object.entries(UFOobjects).forEach(function([key, value]) {
+    //   // console.log(key, value);
+    //   // Append a cell to the row for each value
+    //   // in the weather report object
+    //   var cell = tbody.append("td");
+    //   cell.text(value);
     });
   });
 
@@ -30,21 +30,21 @@ data.forEach(function(UFOobjects) {
 
     console.log(inputValue);
     var filteredData = tableData.filter( UFOobjects => UFOobjects.datetime === inputValue);
-    
-  
+
     console.log(filteredData);
-    
-    // var tbody = d3.select("tbody");
+    data.forEach(function(filteredData) {
+      
+      var row = tbody.append("tr");
 
-    // filterData.forEach(function(UFOobjects){
-    //   var row =tbody.append("tr");
-    //   Object.entries(UFOobjects).for(fuction([key,value]{
-    //   var cell = tbody.append("td");
-    //   cell.text(value);
-    //   });
-    // });
+       Object.entries(filteredData).forEach(function([key, value]) {
+      // console.log(key, value);
+      // Append a cell to the row for each value
+      // in the weather report object
+      var cell = tbody.append("td");
+      cell.text(value);
   
-
   });
-
+  });
+  
+  });
   
