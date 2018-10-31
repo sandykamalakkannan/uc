@@ -1,0 +1,358 @@
+var data = [{
+  State:"Alabama",
+  Population:4863300,
+  Food_insecurity_rate:16.50,
+  Food_insecure_individuals:800620,
+  Food_secure_individuals:4062680
+},
+{
+  State:"Alaska",
+  Population:741894,
+  Food_insecurity_rate:13.40,
+  Food_insecure_individuals:99650,
+  Food_secure_individuals:642244
+},
+{
+  State:"Arizona",
+  Population:6931071,
+  Food_insecurity_rate:14.90,
+  Food_insecure_individuals:1033590,
+  Food_secure_individuals:5897481
+},
+{
+  State:"Arkansas",
+  Population:2988248,
+  Food_insecurity_rate:17.20,
+  Food_insecure_individuals:515270,
+  Food_secure_individuals:2472978
+},
+{
+  State:"California",
+  Population:39250017,
+  Food_insecurity_rate:11.70,
+  Food_insecure_individuals:4574710,
+  Food_secure_individuals:34675307
+},
+{
+  State:"Colorado",
+  Population:5540545,
+  Food_insecurity_rate:11.30,
+  Food_insecure_individuals:627480,
+  Food_secure_individuals:4913065
+},
+{
+  State:"Connecticut",
+  Population:3576452,
+  Food_insecurity_rate:11.60,
+  Food_insecure_individuals:414730,
+  Food_secure_individuals:3161722
+},
+{
+  State:"Delaware",
+  population:952065,
+  Food_insecurity_rate:12.00,
+  Food_insecure_individuals:114370,
+  Food_secure_individuals:837695
+},
+{
+  State:"District of Columbia",
+  Population:681170,
+  Food_insecurity_rate:12.40,
+  Food_insecure_individuals:84380,
+  Food_secure_individuals:596790
+},
+{
+  State:"Florida",
+  Population:20612439,
+  Food_insecurity_rate:13.90,
+  Food_insecure_individuals:2871650,
+  Food_secure_individuals:17740789
+},
+{
+  State:"Georgia",
+  Population:10310371,
+  Food_insecurity_rate:15.10,
+  Food_insecure_individuals:1561360,
+  Food_secure_individuals:8749011
+},
+{
+  State:"Hawaii",
+  Population:1428557,
+  Food_insecurity_rate:11.80,
+  Food_insecure_individuals:168030,
+  Food_secure_individuals:1260527
+},
+{
+  State:"Idaho",
+  Population:1683140,
+  Food_insecurity_rate:13.20,
+  Food_insecure_individuals:221800,
+  Food_secure_individuals:1461340
+},
+{
+  State:"Illinois",
+  Population:12801539,
+  Food_insecurity_rate:11.00,
+  Food_insecure_individuals:1413420,
+  Food_secure_individuals:11388119
+},
+{
+  State:"Indiana",
+  Population:6633053,
+  Food_insecurity_rate:13.70,
+  Food_insecure_individuals:910870,
+  Food_secure_individuals:5722183
+},
+{
+  State:"Lowa",
+  Population:3134693,
+  Food_insecurity_rate:11.50,
+  Food_insecure_individuals:360540,
+  Food_secure_individuals:2774153
+},
+{
+  State:"Kansas",
+  Population:2907289,
+  Food_insecurity_rate:12.90,
+  Food_insecure_individuals:375360,
+  Food_secure_individuals:2531929
+},
+{
+  State:"Kentucky",
+  Population:4436974,
+  Food_insecurity_rate:15.50,
+  Food_insecure_individuals:685830,
+  Food_secure_individuals:3751144
+},
+{
+  State:"Louisiana",
+  Population:4681666,
+  Food_insecurity_rate:16.70,
+  Food_insecure_individuals:783400,
+  Food_secure_individuals:3898266
+},
+{
+  State:"Maine",
+  Population:1331479,
+  Food_insecurity_rate:13.80,
+  Food_insecure_individuals:183310,
+  Food_secure_individuals:1148169
+},
+{
+  State:"Maryland",
+  Population:6016447,
+  Food_insecurity_rate:11.10,
+  Food_insecure_individuals:665420,
+  Food_secure_individuals:5351027
+},
+{
+  State:"Massachusetts",
+  Population:6811779,
+  Food_insecurity_rate:9.60,
+  Food_insecure_individuals:652760,
+  Food_secure_individuals:6159019
+},
+{
+  State:"Michigan",
+  Population:9928300,
+  Food_insecurity_rate:14.20,
+  Food_insecure_individuals:1414700,
+  Food_secure_individuals:8513600
+},
+{
+  State:"Minnesota",
+  Population:5519952,
+  Food_insecurity_rate:9.20,
+  Food_insecure_individuals:508630,
+  Food_secure_individuals:5011322
+},
+{
+  State:"Mississipi",
+  Population:2988726,
+  Food_insecurity_rate:20.10,
+  Food_insecure_individuals:600840,
+  Food_secure_individuals:2387886
+},
+{
+  State:"Missouri",
+  Population:6093000,
+  Food_insecurity_rate:14.70,
+  Food_insecure_individuals:896570,
+  Food_secure_individuals:5196430
+},
+{
+  State:"Montana",
+  Population:1042520,
+  Food_insecurity_rate:12.30,
+  Food_insecure_individuals:128740,
+  Food_secure_individuals:913780
+},
+{
+  State:"Nebraska",
+  Population:1907116,
+  Food_insecurity_rate:11.90,
+  Food_insecure_individuals:227350,
+  Food_secure_individuals:1679766
+},
+{
+  State:"Nevada",
+  Population:2940058,
+  Food_insecurity_rate:12.70,
+  Food_insecure_individuals:372820,
+  Food_secure_individuals:2567238
+},
+{
+  State:"New Hampshire",
+  Population:1334795,
+  Food_insecurity_rate:9.00,
+  Food_insecure_individuals:119770,
+  Food_secure_individuals:1215025
+},
+{
+  State:"New Jersey",
+  Population:8944469,
+  Food_insecurity_rate:10.30,
+  Food_insecure_individuals:919030,
+  Food_secure_individuals:8025439
+},
+{
+  State:"New Mexico",
+  Population:2081015,
+  Food_insecurity_rate:15.80,
+  Food_insecure_individuals:327930,
+  Food_secure_individuals:1753085
+},
+{
+  State:"New York",
+  Population:19745289,
+  Food_insecurity_rate:11.90,
+  Food_insecure_individuals:2352940,
+  Food_secure_individuals:17392349
+},
+{
+  State:"North Carolina",
+  Population:10146788,
+  Food_insecurity_rate:15.40,
+  Food_insecure_individuals:1565910,
+  Food_secure_individuals:8580878
+},
+{
+  State:"North Dakota",
+  Population:757953,
+  Food_insecurity_rate:7.40,
+  Food_insecure_individuals:55710,
+  Food_secure_individuals:702243
+},
+{
+  State:"Ohio",
+  Population:11614373,
+  Food_insecurity_rate:15.10,
+  Food_insecure_individuals:1758310,
+  Food_secure_individuals:9856063
+},
+{
+  State:"Oklahoma",
+  Population:3923561,
+  Food_insecurity_rate:16.20,
+  Food_insecure_individuals:635740,
+  Food_secure_individuals:3287821
+},
+{
+  State:"Oregon",
+  Population:4093465,
+  Food_insecurity_rate:12.90,
+  Food_insecure_individuals:527370,
+  Food_secure_individuals:3566095
+},
+{
+  State:"Pennsylvania",
+  Population:12784227,
+  Food_insecurity_rate:12.50,
+  Food_insecure_individuals:1599520,
+  Food_secure_individuals:11184707
+},
+{
+  State:"Rhode Island",
+  Population:1056426,
+  Food_insecurity_rate:12.10,
+  Food_insecure_individuals:128330,
+  Food_secure_individuals:928096
+},
+{
+  State:"South Carolina",
+  Population:4961119,
+  Food_insecurity_rate:13.90,
+  Food_insecure_individuals:687880,
+  Food_secure_individuals:4273239
+},
+{
+  State:"South Dakota",
+  Population:865454,
+  Food_insecurity_rate:11.70,
+  Food_insecure_individuals:100990,
+  Food_secure_individuals:764464
+},
+{
+  State:"Tennessee",
+  Population:6651194,
+  Food_insecurity_rate:14.50,
+  Food_insecure_individuals:967430,
+  Food_secure_individuals:5683764
+},
+{
+  State:"Texas",
+  Population:27862596,
+  Food_insecurity_rate:15.40,
+  Food_insecure_individuals:4277540,
+  Food_secure_individuals:23585056
+},
+{
+  State:"Utah",
+  Population:3051217,
+  Food_insecurity_rate:12.50,
+  Food_insecure_individuals:382490,
+  Food_secure_individuals:2668727
+},
+{
+  State:"Vermont",
+  Population:624594,
+  Food_insecurity_rate:12.10,
+  Food_insecure_individuals:75360,
+  Food_secure_individuals:549234
+},
+{
+  State:"Virginia",
+  Population:8411808,
+  Food_insecurity_rate:10.60,
+  Food_insecure_individuals:893720,
+  Food_secure_individuals:7518088
+},
+{
+  State:"Washington",
+  Population:7288000,
+  Food_insecurity_rate:12.00,
+  Food_insecure_individuals:872720,
+  Food_secure_individuals:6415280
+},
+{
+  State:"West Virginia",
+  Population:1831102,
+  Food_insecurity_rate:14.60,
+  Food_insecure_individuals:267280,
+  Food_secure_individuals:1563822
+},
+{
+  State:"Wisconsin",
+  Population:5778709,
+  Food_insecurity_rate:10.50,
+  Food_insecure_individuals:609360,
+  Food_secure_individuals:5169349
+},
+{
+  State:"Wyoming",
+  Population:585501,
+  Food_insecurity_rate:12.60,
+  Food_insecure_individuals:73830,
+  Food_secure_individuals:511671
+}
+];

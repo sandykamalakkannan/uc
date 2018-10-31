@@ -1,0 +1,233 @@
+
+      {% extends "base.html" %}
+
+      {% block content %}
+
+      
+      <style>
+    
+            @media screen and (min-width: 481px) {
+            #side {
+            
+            width:100%;
+            }
+            .chart text {
+                    font: 18px sans-serif;
+                    fill:white;
+                }
+        
+                .chart {
+                    position: relative;
+                   
+                }
+        
+        
+            </style>
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+  <script src="https://gitcdn.xyz/repo/cool-Blue/d3-lib/master/transitions/end-all/endAll.js"></script>
+  
+ 
+ 
+    
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script src="{{url_for('static', filename='js/chart.js')}}"></script>
+      <img src="{{url_for('static', filename='Images/hero-3.png')}}" alt="mainpicture" style="width:70%;height:400px;padding-left:10%"> -->
+         
+      
+       
+        <div class="row" style="padding:2%;background:black">
+          <div class = "col-xs-4 col-sm-12 col-lg-6 col-md-12"  >
+            
+              <p style="color:gray;font-family:Georgia;font-size: 40px">Food Waste Generation and Management</p> 
+              
+                <svg class="chart"></svg>
+              </div>
+         
+          <div class="col-xs-4 col-sm-12 col-lg-6 col-md-12" >
+    <p style="font-size:15px;text-align: justify;color:rgb(250, 236, 209);padding:1%;margin-top:5%">
+ Wasted food can occur along the entire food supply chain, from farms, processors, distributors, wholesalers, 
+ retailers, restaurants/foodservice establishments, and consumers  and everywhere in between. In developing countries, most wasted food occurs prior to reaching the market. This is due to inefficient processes and equipment in harvesting, transporting, and storing food. However, in developed countries such as the United States, most wasted food is accumulated after reaching the market—at the retail, consumer, and household levels.
+ <p style="font-size:25px;color:rgb(250, 236, 209)">Farms</p><p style="font-size:15px;text-align: justify;color:rgb(250, 236, 209);padding:1%">
+The first level of food waste is on the farm. Fifty-percent of land is used for agriculture, yet, an enormous amount of food is wasted due to a lack 
+of storage space, labor shortages, weather, pests, and uncertain market demand.</p>
+
+ 
+ <p style="font-size:25px;color:rgb(250, 236, 209)">Grocery Stores and Restaurants</p><p style="font-size:15px;text-align: justify;color:rgb(250, 236, 209);padding:1%">
+ Retailers discard food due to overstocking, improper stock rotation, quality that does not meet the retailer’s specifications and additional trimming of edible parts, such as for precut produce.
+ Some reasons that wasted food occurs in these settings include kitchen loss during preparation, consumer plate waste, and larger meal portion sizes leading to increased plate waste
+  
+  <p style="font-size:25px;color:rgb(250, 236, 209);text-align: justify">Residential</p><p style="font-size:15px;text-align: justify;color:rgb(250, 236, 209);padding:1%">
+ There are many contributing factors at this level, including purchasing too much food, confusion over spoilage dates (best by, use by, sell by, etc.), lack of knowledge when preparing foods, confusion over when food is ripe, seasonal factors, uneaten leftovers, and throwing away food that is still safe to eat.
+  </p>
+
+          </div>
+              </div>
+        <div class="row" style="padding:2%;background:black">
+          <div class = "col-xs-4 col-sm-12 col-lg-5 col-md-12"  >
+              <p style="color:white;font-family:Georgia;font-size: 25px;padding-left:20%">Food Recovery Hierarchy</p>
+            <img class="mr-3" src="{{url_for('static', filename='Images/pyramid.png')}}" alt="Pyramid" style="width:500px;height:400px ">
+             </div>
+              
+                
+         
+          <div class="col-xs-4 col-sm-12 col-lg-6 col-md-12" style="margin:2%">
+                
+            <canvas id="bar-chart-horizontal" width="1600" height="700"></canvas>
+            </div>
+              
+           </div>   
+              
+              <script>
+new Chart(document.getElementById("bar-chart-horizontal"), {
+    type: 'horizontalBar',
+    data: {
+      labels: ["Fed to hungry people", "Fed to animals", "Industrial use", "Composted", "Landfilled"],
+      datasets: [
+        {
+          
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [621*2,125*2,7200*2,1570*2,29154*2]
+        }
+      ]
+    },
+    options: {
+      legend: { display:false},
+      labels: {fontColor:'white',
+      fontSize:25,
+      },
+      title: {
+        display: true,
+        text: 'Food waste management',
+        fontSize:25,
+        fontColor:'white',
+        fontFamily:"Georgia"
+      }
+    }
+});
+
+
+</script>     
+        <script>
+    var crm = (function() {
+        var prevData1 = [];
+        var prevData2 = [];
+        return function crm(f) {
+        
+            oldPieData1 = JSON.parse(JSON.stringify(prevData1));
+            Data = f([{name: 'Farms',  value: 15.9},
+                {name: 'Food processing',  value:1.6},
+                {name: 'Grocery stores & Restaraunts', value: 39.7},
+                {name: 'Residential',  value:42.8}
+            ])
+           
+        
+        }
+    })();
+    pieTween = function(d, i) {
+        var s0;
+        var e0;
+        if(oldPieData[i]){
+            s0 = oldPieData[i].startAngle;
+            e0 = oldPieData[i].endAngle;
+        } else if (!(oldPieData[i]) && oldPieData[i-1]) {
+            s0 = oldPieData[i-1].endAngle;
+            e0 = oldPieData[i-1].endAngle;
+        } else if(!(oldPieData[i-1]) && oldPieData.length > 0){
+            s0 = oldPieData[oldPieData.length-1].endAngle;
+            e0 = oldPieData[oldPieData.length-1].endAngle;
+        } else {
+            s0 = 0;
+            e0 = 0;
+        }
+        var i = d3.interpolate({startAngle: s0, endAngle: e0}, {startAngle: d.startAngle, endAngle: d.endAngle});
+        return function(t) {
+            var b = i(t);
+            return arc(b);
+        };
+    };
+    var pie = Math.PI * 2;
+    var w =500;
+        h = 500;
+    var duration = 4000;
+    var chart = d3.select('.chart')
+            .attr('width', w)
+            .attr('height',h)
+            .append('g')
+            .attr('transform', 'translate('+w/2+','+ h/2 + ')'),
+        pieChart = d3.layout.pie()
+            .value(function(d){ return d.value; })
+            .sort(null),
+        oldPieData = [],
+
+        groups = chart.append ("g")
+            .attr("class", "groups"),
+    // group at the center of donut
+        center_group = chart.append('g')
+            .attr("class", "center_group")
+            .append('text')
+            .attr({'text-anchor': 'middle', dy: "0.35em"});
+            createPieChart = function(data){
+        var radius = 200, innerRadius = radius - 100;
+        var pieData,
+            color = d3.scale.ordinal()
+                .range(["#3e95cd", "#8e5ea2","#3cba9f","#c45850"])
+                .domain(data.map(function(d){return d.name}));
+
+        // displaying total calls at the center
+        center_group.text("Food waste Generation");
+        // center_group.text(d3.format(",.1f")(d3.sum(data, function(d){return d.value})));
+
+        arc = d3.svg.arc()
+            .innerRadius(innerRadius)
+            .outerRadius(radius);
+
+        var arcs = groups.selectAll('path')
+            .data((pieData = pieChart(data)), function(d){return d.data.name});
+        arcs.enter().append('path')
+            .attr('class', 'arc');
+
+        arcs.attr('fill', function(d){ return color(d.data.name)})
+            .transition()
+            .duration(duration)
+            .attrTween("d", pieTween)
+            .ease("bounce");
+            function computeTextRotation(d) {
+            var rotation = (d.startAngle + d.endAngle)/2 * 180 / Math.PI - 90;
+            return {
+                global: rotation,
+                correction: rotation > 90 ? 180 : 0
+            };
+        }
+
+        var labels = groups.selectAll("text")
+            .data(pieData);
+        labels.enter().append("text")
+            .attr({"text-anchor": "middle"})
+            .text(function(d) {
+                return d.data.name
+            })
+            .attr("dy", ".35em") // vertical-align
+            .style("font-size", 10);
+        labels
+            .transition()
+            .duration(duration)
+            .attr("transform", function(d) {
+                var r = computeTextRotation(d);
+                return "rotate(" + r.global + ")" + "translate(" + (radius + innerRadius) / 2 + ",0)" + "rotate(" + -r.correction + ")";
+            })
+            .call(endAll, function(){
+                window.requestAnimationFrame(
+                    function(){crm(createPieChart)}
+                )
+            });
+        return pieData;
+    };
+
+    crm(createPieChart);
+   window.setInterval(function(){crm(createPieChart)}, duration + 1100000000)
+</script>
+      {% endblock %}
