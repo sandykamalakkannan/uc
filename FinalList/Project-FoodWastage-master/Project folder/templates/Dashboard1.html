@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+ <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="http://d3js.org/d3.v2.min.js"></script>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>-->
+      <img src="{{url_for('static', filename='Images/hero-4.png')}}" alt="mainpicture" style="width:70%;height:400px;padding-left:30%">
+         
+      <div style="background:black">
+   
+  <script src="http://d3js.org/d3.v2.min.js"></script> 
+  <div class="row" style="padding-left:2%">
+  <div class="col-md-4">
+    <p style="color: white;font-size:20px;padding-left:19%;padding-top:1%">Retail Loss in Percentage</p>
+  <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><g transform="translate(.5,.5)"><g class="cell" transform="translate(5,5)"><rect width="153" height="119.80769230769232" style="fill: rgb(191, 105, 105); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="76.5" y="59.90384615384616" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Dairy Products, 11</text></g><g class="cell" transform="translate(5,129.80769230769232)"><rect width="153" height="74.42307692307693" style="fill: rgb(191, 179, 105); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="76.5" y="37.21153846153847" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Eggs, 7</text></g><g class="cell" transform="translate(5,209.23076923076925)"><rect width="153" height="85.76923076923075" style="fill: rgb(130, 191, 105); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="76.5" y="42.88461538461537" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Fish and Seafoods, 8</text></g><g class="cell" transform="translate(163,5)"><rect width="96.57142857142856" height="153.84615384615384" style="fill: rgb(105, 191, 154); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="48.28571428571428" y="76.92307692307692" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Fruits, 9</text></g><g class="cell" transform="translate(264.57142857142856,5)"><rect width="130.42857142857144" height="153.84615384615384" style="fill: rgb(105, 154, 191); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="65.21428571428572" y="76.92307692307692" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Grain Products, 12</text></g><g class="cell" transform="translate(163,163.84615384615384)"><rect width="126.66666666666663" height="49.46153846153848" style="fill: rgb(130, 105, 191); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="63.333333333333314" y="24.73076923076924" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Meat,Poultry, 4</text></g><g class="cell" transform="translate(163,218.30769230769232)"><rect width="126.66666666666663" height="76.69230769230768" style="fill: rgb(191, 105, 179); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="63.333333333333314" y="38.34615384615384" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Nuts, 6</text></g><g class="cell" transform="translate(294.66666666666663,163.84615384615384)"><rect width="100.33333333333337" height="131.15384615384616" style="fill: rgb(130, 191, 105); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="50.166666666666686" y="65.57692307692308" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Vegetables, 8</text></g></g></svg></div>
+
+    <div class="col-md-4">
+    <p style="color: white;font-size:20px;padding-left:8%;padding-top:1%">Consumer Loss(Wastage) in Percentage</p>
+      <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg" version="1.1"><g transform="translate(.5,.5)"><g class="cell" transform="translate(5,5)"><rect width="170.55555555555554" height="76.94444444444444" style="fill: rgb(191, 105, 105); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="85.27777777777777" y="38.47222222222222" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Dairy Products, 20</text></g><g class="cell" transform="translate(5,86.94444444444444)"><rect width="170.55555555555554" height="81.04166666666667" style="fill: rgb(191, 191, 105); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="85.27777777777777" y="40.520833333333336" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Eggs, 21</text></g><g class="cell" transform="translate(5,172.98611111111111)"><rect width="170.55555555555554" height="122.01388888888889" style="fill: rgb(105, 191, 105); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="85.27777777777777" y="61.00694444444444" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Fish and Seafoods, 31</text></g><g class="cell" transform="translate(180.55555555555554,5)"><rect width="104.72222222222223" height="119.55555555555556" style="fill: rgb(105, 191, 191); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="52.361111111111114" y="59.77777777777778" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Fruits, 19</text></g><g class="cell" transform="translate(290.27777777777777,5)"><rect width="104.72222222222223" height="119.55555555555556" style="fill: rgb(105, 191, 191); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="52.361111111111114" y="59.77777777777778" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Grain Products, 19</text></g><g class="cell" transform="translate(180.55555555555554,129.55555555555554)"><rect width="121.60256410256409" height="114.31111111111113" style="fill: rgb(191, 191, 105); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="60.801282051282044" y="57.155555555555566" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Meat,Poultry, 21</text></g><g class="cell" transform="translate(180.55555555555554,248.86666666666667)"><rect width="121.60256410256409" height="46.133333333333326" style="fill: rgb(105, 105, 191); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="60.801282051282044" y="23.066666666666663" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Nuts, 9</text></g><g class="cell" transform="translate(307.15811965811963,129.55555555555554)"><rect width="87.84188034188037" height="165.44444444444446" style="fill: rgb(191, 105, 191); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="43.920940170940185" y="82.72222222222223" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Vegetables, 22</text></g></g></svg></div>
+  <div class="col-md-4">
+ <p style="color: white;font-size:20px;padding-left:20%;padding-top:1%">Total Loss in Percentage</p>
+    <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg" version="1.1"><g transform="translate(.5,.5)"><g class="cell" transform="translate(5,5)"><rect width="165.5286343612335" height="88.31632653061224" style="fill: rgb(191, 105, 105); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="82.76431718061674" y="44.15816326530612" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Dairy Products, 31</text></g><g class="cell" transform="translate(5,98.31632653061224)"><rect width="165.5286343612335" height="79.28571428571426" style="fill: rgb(191, 191, 105); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="82.76431718061674" y="39.64285714285713" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Eggs, 28</text></g><g class="cell" transform="translate(5,182.6020408163265)"><rect width="165.5286343612335" height="112.39795918367349" style="fill: rgb(105, 191, 105); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="82.76431718061674" y="56.198979591836746" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Fish and Seafoods, 39</text></g><g class="cell" transform="translate(175.5286343612335,5)"><rect width="101.52878369297392" height="129.92248062015503" style="fill: rgb(191, 191, 105); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="50.76439184648696" y="64.96124031007751" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Fruits, 28</text></g><g class="cell" transform="translate(282.0574180542074,5)"><rect width="112.9425819457926" height="129.92248062015503" style="fill: rgb(191, 105, 105); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="56.4712909728963" y="64.96124031007751" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Grain Products, 31</text></g><g class="cell" transform="translate(175.5286343612335,139.92248062015503)"><rect width="123.26935179358085" height="95.04844961240312" style="fill: rgb(105, 191, 191); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="61.63467589679043" y="47.52422480620156" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Meat,Poultry, 25</text></g><g class="cell" transform="translate(175.5286343612335,239.97093023255815)"><rect width="123.26935179358085" height="55.029069767441854" style="fill: rgb(105, 105, 191); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="61.63467589679043" y="27.514534883720927" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Nuts, 15</text></g><g class="cell" transform="translate(303.79798615481434,139.92248062015503)"><rect width="91.20201384518566" height="155.07751937984497" style="fill: rgb(191, 105, 191); stroke: rgb(255, 255, 255);"></rect><title>undefined: NaN</title><text x="45.60100692259283" y="77.53875968992249" dy=".35em" text-anchor="middle" style="font-size: 11px; font-family: Arial, Helvetica;">Vegetables, 30</text></g></g></svg></div>
+    
+<div class="row">
+    <div class="col-xs-4 col-sm-12 col-lg-10 col-md-12" style="margin-left:50%;padding:2%">
+   <div id="plot"></div>
+</div>
+  </div>
+  </div>
+<script>
+    var trace0 = {
+  x:['Grains','Fresh/Processed Fruits','Fresh/Processed Vegetables','Dairy',
+    'Meat and Poultry','Eggs','Tree Nuts and Peanuts','Fish and seafood'],
+  y:[12,9,8,11,4,7,6,8],
+    name:'Retail_loss', 
+   
+    type: 'bar',
+    marker: {
+    color: '#8269bf'
+  }
+};
+
+var trace1 = {
+  x: ['Grains','Fresh/Processed Fruits','Fresh/Processed Vegetables','Dairy',
+    'Meat and Poultry','Eggs','Tree Nuts and Peanuts','Fish and seafood'],
+    y:[19,19,22,20,21,21,9,31],
+    name:'Consumer_Loss',
+  type: 'bar',
+marker: {
+    color: '#bf6969'
+  }
+
+};
+var trace2 = {
+  x: ['Grains','Fresh/Processed Fruits','Fresh/Processed Vegetables','Dairy',
+    'Meat and Poultry','Eggs','Tree Nuts and Peanuts','Fish and seafood'],
+    y:[31,28,30,31,25,28,15,39],
+    name:'Total_Loss',
+  type: 'bar',
+
+marker: {
+    color: '#82bf69'
+  }
+
+};
+
+
+var data = [trace0,trace1, trace2];
+
+var layout = {barmode: 'group',
+              title:" USDA’S Estimate Of Retail/Consumer/Total Food Loss By Weight <br>Aa a Percentage Of Total Food Supply In The US For2010,<br> Excluding Inedible Portions Of Food",
+              titlefont:{color:"white"},
+              legend:{
+                font:{color:"white"}
+              },
+              plot_bgcolor:'black',
+              paper_bgcolor:"black",
+              xaxis:{color:"white"},
+              yaxis:{color:"white"},
+             
+             };
+
+Plotly.newPlot("plot", data, layout);
+
+</script>
+        
+
+         
+{% endblock %}

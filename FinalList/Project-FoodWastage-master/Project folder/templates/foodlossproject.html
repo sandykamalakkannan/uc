@@ -1,0 +1,186 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/lincss.css')}}">
+  <script src="{{url_for('static', filename='js/leastsquare.js')}}"></script>
+  <script src="{{url_for('static', filename='js/linjs.js')}}"></script>
+        
+      <img src="static/Images/hero-1.png" alt="mainpicture" style="width:70%;height:400px;padding-left:20%">
+    
+    
+    
+    <div class="row" style="padding:2%;background:black">
+          <div class = "col-xs-4 col-sm-12 col-lg-6 col-md-12 ">
+            
+               <h5 class="mt-0" style="color:rgb(250, 236, 209);font-size:40px">Food Wastage and Food Insecurity</h5>
+              <p style="font-size:15px;text-align: justify;color:rgb(250, 236, 209);"> The United Nations 
+                and the US Department of Agriculture (USDA) define food waste as:
+                 “Food waste is a component of food loss and occurs when an edible item goes unconsumed, 
+                 as in food discarded by retailers due to color or appearance and plate waste by consumers.According 
+                 to The National Resource Defense Council (2012), approx. 40% of all food produced in the 
+                 United States goes to waste”.
+              </p> 
+              <p style="font-size:15px;text-align: justify;color:rgb(250, 236, 209)">America does not eat 40 percent of 
+                its food. If the United States went grocery shopping, we would leave the store with five bags and 
+                drop two in the parking lot. And leave them there. Seems crazy, but we do it every day.
+All told, America throws out more than 1,250 calories per day per person, or more than 400 pounds of food per 
+person annually. That’s a loss of up to $218 billion each year, costing a household of four an average of $1,800 annually."</p>
+<p style="font-size:15px;text-align: justify;color:rgb(250, 236, 209)"> At the same time, 42 million Americans face food 
+  insecurity—and less than one-third of the food we throw out would be enough to feed this population completely.
+  To place this in a global context, the average American consumer wastes 10 times as much as his or her counterpart in Southeast Asia or sub-Saharan Africa.
+We leave entire fields unharvested, reject produce solely for cosmetic reasons, throw out anything past or even close to its “sell by” date, inundate restaurant patrons with massive portions, and let absurd amounts of food rot in the back of our fridges. In our diverse nation of 322 million people, wasting food emerges as an embarrassing unifier. No matter our age, gender, economic status, or education level, we all waste food.
+   </p>
+              
+              
+              
+              
+              <p style="color:rgb(250, 236, 209);font-size:30px;">Project Team</p>
+               <ul style="color:rgb(250, 236, 209);font-size:20px;padding-left:10%">
+                <li>Aayushi</li>
+                <li>Preeta</li>
+                <li>Sangeetha Kamalakkannan</li>
+                <li>Thanu Thavasi Perumal</li>
+                </ul>
+                </div>
+            
+          
+          
+          <div class="col-xs-3 col-sm-6 col-lg-5 col-md-12 " id="Side" style="margin:1%;background:black">
+               
+              <div class="lr">
+                <button id="resid_button" class="btn btn-success">Residual View</button>
+                <button id="reset_button" class="btn btn-success">Reset</button></div>
+                <div><img src="static/Images/yearwastage1.png" style=" width:600px;height:70px"></div>
+<script >
+//Global Variables
+var data = [];
+var resids = [];
+
+/* //D3 Set up */
+var width = 500,
+    height = 500, 
+    margin = 50;
+
+
+/* //makes scales */
+var svg=d3.select(".lr").append("svg").attr("width",width).attr("height",height);
+var x=d3.scale.linear().domain([1960,2050]).range([70,width-margin]);
+var y=d3.scale.linear().domain([0,50]).range([height-margin,margin]);
+var r=d3.scale.linear().domain([0,500]).range([0,20]);
+var o=d3.scale.linear().domain([10000,100000]).range([.5,1]);
+var c=d3.scale.category10().domain(["Africa","America","Asia","Europe","Oceania"]);
+
+//create axis
+var xAxis = d3.svg.axis()
+  .scale(x)
+  .orient("bottom");
+
+var yAxis = d3.svg.axis()
+  .scale(y)
+  .orient("left");
+
+//draw axis
+svg.append("g")
+  .attr("class", "axis")
+  .attr("transform", "translate(0," + (height - margin) + ")")
+  .call(xAxis);
+
+svg.append("g")
+  .attr("class", "axis")
+   .attr("transform", "translate(" + margin + ",0)")
+  .call(yAxis);
+
+//draw dashed lines
+svg.selectAll(".h").data(d3.range(0,50,2)).enter()
+  .append("line").classed("h",1)
+  .attr("x1",margin).attr("x2",height-margin)
+  .attr("y1",y).attr("y2",y)
+  
+svg.selectAll(".v").data(d3.range(0,10,2)).enter()
+  .append("line").classed("v",1)
+  .attr("y1",margin).attr("y2",width-margin)
+  .attr("x1",x).attr("x2",x)
+
+
+var residview = false;
+
+d3.select('#resid_button').on('click', function() {
+
+    if ( residview ) {
+        svg.selectAll('path.resline').remove();
+        svg.selectAll('path.halfcirc').remove();
+        svg.selectAll("circle")
+          .style("opacity", 1)
+        residview = false;
+    } else {
+        svg.selectAll("circle")
+        .style("opacity", 0)
+
+
+        residview = true;
+        drawresiduals(data);
+       
+    }        
+});
+
+d3.select('#reset_button').on('click', function() {
+
+   
+        svg.selectAll('path.resline').remove();
+        svg.selectAll('path.halfcirc').remove();
+        svg.selectAll('circle').remove();
+        svg.selectAll('path').remove();
+        residview = false;
+        data = []
+        resids = []
+        
+});  
+
+
+
+//click event: draw new circle
+svg.on('click', function(){
+  if(d3.mouse(this)[0] > (50 + r(200)) && d3.mouse(this)[0] < (450 - r(200)) && d3.mouse(this)[1] > (50 + r(200)) && d3.mouse(this)[1] < (450 - r(200))){
+    //push new data point to data array
+    data.push({"x": d3.mouse(this)[0], "y": d3.mouse(this)[1], "radius": 200, "fill": "Europe", "opacity": 90000});
+
+    //select each circle and append the data
+    var selection = svg.selectAll("circle").data(data)
+
+    //update selection and draw new circle
+    selection.enter()
+    .append("circle")
+    .attr("cx",function(d) {return d.x;})
+    .attr("cy",function(d) {return d.y;})
+    .attr("r",function(d) {return r(d.radius);})
+    .style("fill",function(d) {return "green";})
+    .style("opacity",function(d) {
+      if(residview){
+        return 0;
+      } else {
+        return o(+d.opacity);
+      }
+    })
+
+    //exit selection
+    selection.exit().remove()
+
+    if(data.length == 2){
+      drawline(data);
+    } else if(data.length > 2){
+      transitionline(data);
+      if(residview){
+        resids = drawresiduals(data);
+      }
+    }
+  }
+})
+
+
+
+</script>
+
+ 
+{% endblock %}
